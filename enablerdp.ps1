@@ -1,3 +1,4 @@
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -ArgumentList '/I AzureCLI.msi /quiet' -Wait; Remove-Item .\AzureCLI.msi
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -name "PortNumber" -Value '443'
 New-NetFirewallRule -DisplayName "RDPPORTLatest-TCP-In" -Profile "Public" -Direction Inbound -Action Allow -Protocol TCP -LocalPort '443'
 New-NetFirewallRule -DisplayName "RDPPORTLatest-UDP-In" -Profile "Public" -Direction Inbound -Action Allow -Protocol UDP -LocalPort '443'
